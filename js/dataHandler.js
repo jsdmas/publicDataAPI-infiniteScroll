@@ -29,6 +29,7 @@ async function search() {
 
     // 행사 목록 배열
     let festival = data.ListPublicReservationCulture.row;
+    // console.log(festival);
 
     // festival 로 받은 행사 정보를 통해 HTML데이터 생성.
     festival.forEach(v => {

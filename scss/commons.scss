@@ -1,0 +1,63 @@
+
+@mixin between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin around {
+    display: flex;
+    justify-content: space-around;
+}
+
+@mixin aline {
+    display: flex;
+    align-items: center;
+}
+
+@mixin always($value) {
+    position: fixed;
+    z-index: $value;
+    @content;
+}
+
+@mixin container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@mixin figuar {
+    width: 33.3333%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+@mixin hover ($back, $font) {
+    &:hover {
+        background-color: $back;
+        color : $font;
+        @content;
+    }
+}
+
+@mixin img_cont_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin img_full {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0;
+    padding-top: 66.64%;
+}
+
+@mixin clear {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
