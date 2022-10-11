@@ -55,4 +55,56 @@ async function search() {
         // div 클릭 이벤트_메뉴 추가 (toggle를 통한 css 움직임 제어)
     });
 
+        /** 드롭다운 **/
+
+        let arr1 = [], arr2 = [], arr3 = [], arr4 = [] ;
+        let MINCLASSNM = [], SVCSTATNM = [], PAYATNM = [], AREANM = [];
+
+        festival.forEach((v) => {
+            arr1.push(v.MINCLASSNM);
+            MINCLASSNM = arr1.filter((v, i) => arr1.indexOf(v) === i);
+
+            arr2.push(v.SVCSTATNM);
+            SVCSTATNM = arr2.filter((v, i) => arr2.indexOf(v) === i);
+
+            arr3.push(v.PAYATNM);
+            PAYATNM = arr3.filter((v, i) => arr3.indexOf(v) === i);
+
+            arr4.push(v.AREANM);
+            AREANM = arr4.filter((v, i) => arr4.indexOf(v) === i);
+        })
+
+        const id1 = document.querySelector('#MINCLASSNM');
+        const id2 = document.querySelector('#SVCSTATNM');
+        const id3 = document.querySelector('#PAYATNM');
+        const id4 = document.querySelector('#AREANM');
+
+        function name(params, x) {
+            // 반복문으로 dropdown태그 추가
+            params.forEach((v, i) => {
+            const option = document.createElement('option');
+            option.setAttribute('value', params[i]);
+
+            option.innerHTML = params[i];
+
+            x.appendChild(option);
+            });
+        }
+        name(MINCLASSNM, id1);
+        name(SVCSTATNM, id2);
+        name(PAYATNM, id3);
+        name(AREANM, id4);
 }
+
+    // 검색폼의 submit 데이터 가져오기
+    document.querySelector('#form').addEventListener('submit', e => {
+        e.preventDefault();
+
+        // 입력된 대상을 가져온다.
+        const MINCLASSNM_data = document.querySelector('#MINCLASSNM').value;
+        const SVCSTATNM_data = document.querySelector('#SVCSTATNM').value;
+        const PAYATNM_data = document.querySelector('#PAYATNM').value;
+        const AREANM_data = document.querySelector('#AREANM').value;
+
+        console.log(MINCLASSNM_data);
+    });

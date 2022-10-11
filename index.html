@@ -6,21 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>데이터 불러오기</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
 <body>
-    <header>
-        <h1>우주최강 6조</h1>
+    <header class="header">
+        <a href="#" class="logo"><h1>서울시 문화행사 정보조회</h1></a>
+        <div class="bookmark"><i class="fa-solid fa-star"></i></div>
     </header>
     <nav>
-        <ul>
-            <li>필터1</li>
-            <li>필터2</li>
-            <li>필터3</li>
-            <li><button>필터적용</button></li>
-            <li>즐겨찾기</li>
-        </ul>
+        <form id="form">
+            <div>
+                <label for="MINCLASSNM">소분류</label>
+                <select name="MINCLASSNM" id="MINCLASSNM">
+                    <option value="">--선택하세요--</option>
+                </select>
+                    <label for="SVCSTATNM">서비스상태</label>
+                <select name="SVCSTATNM" id="SVCSTATNM">
+                    <option value="">--선택하세요--</option>
+                </select>
+                <label for="PAYATNM">결제방법</label>
+                <select name="PAYATNM" id="PAYATNM">
+                    <option value="">--선택하세요--</option>
+                </select>
+                <label for="AREANM">지역명</label>
+                <select name="AREANM" id="AREANM">
+                    <option value="">--선택하세요--</option>
+                </select>
+                <!-- <label for="subject">접수일</label>
+                <input type="date" placeholder="2022. 09. 19. 오후 08:00" required> -->
+                <button type="submit" class="btn" id="submit">검색</button>
+            </div>
+        </form>
     </nav>
     <div id="container">
         <!-- <div class="box">
@@ -32,6 +49,10 @@
             </div>
         </div> -->
     </div>
+
+    <footer>
+        <div>footer</div>
+    </footer>
     <!-- key값, 데이터타입 -->
     <script src="./js/keyDatatype.js"></script>
     <!-- axios -->
