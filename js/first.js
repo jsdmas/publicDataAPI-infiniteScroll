@@ -4,7 +4,7 @@
  */
 
 // 초기 불러올 데이터의 양 
-let firestPage = 1;
+let firstPage = 1;
 let endPage = 10;
 
 //첫 페이지에 데이터 불러오기.
@@ -13,7 +13,7 @@ search();
 (async () => {
     let json = null;
     try {
-        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/${endPage}`);
+        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firstPage}/${endPage}`);
     } catch (error) {
         console.error(`[Error Code] ${error.code}`);
         console.error(`[Error Message] ${error.message}`);
@@ -49,9 +49,10 @@ search();
         // 스크롤바의 반동 효과를 고려해서 scrollTop + windowHeight가 실제 화면 크기보다 커 질 수도 있다.
         if (scrollTop + windowHeight >= documentHeight) {
             // 10개의 행사정보 불러오기 (배열길이 설정)
-            firestPage += 10;
+            firstPage += 10;
             endPage += 10;
             // dataHandler의 search 함수실행
+
             search();
         }
     });

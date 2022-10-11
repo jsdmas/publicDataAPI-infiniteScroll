@@ -12,7 +12,7 @@ const moreInfo = document.querySelector(`.description__moreinfo>p`);
 async function search() {
     let json = null;
     try {
-        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/${endPage}`);
+        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firstPage}/${endPage}`);
     } catch (error) {
         console.error(`[Error Code] ${error.code}`);
         console.error(`[Error Message] ${error.message}`);
@@ -83,10 +83,10 @@ async function search() {
             // moreInfo : 상세내용
             const DTLCONTNum = v.DTLCONT.indexOf("3.");
             const deleteDT = v.DTLCONT.slice(0, DTLCONTNum);
-            moreInfo.innerHTML = v.DTLCONT.replace(deleteDT, "").replace("3.", ">");
-
+            const text = v.DTLCONT.replace(deleteDT, "").replace("3.", ">");
+            // const newtext = text.replace(/<[^>]*>?/g, '');
+            // moreInfo.innerHTML = newtext;
+            moreInfo.innerHTML = text;
         });
     });
-
-
 }
