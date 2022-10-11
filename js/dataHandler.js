@@ -85,7 +85,6 @@ async function search() {
             const deleteDT = v.DTLCONT.slice(0, DTLCONTNum);
             moreInfo.innerHTML = v.DTLCONT.replace(deleteDT, "").replace("3.", ">");
 
-
         });
     });
 

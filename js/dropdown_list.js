@@ -2,10 +2,14 @@
  * data에서 필터로 사용할 dropdown select 종류를 가져옴
  */
 
- (async () => {
+(async () => {
     let json = null;
     try {
-        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/461`);
+
+        const response = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/${endPage}`);
+        json = response.data;
+        const listTotalCount = json.ListPublicReservationCulture.list_total_count;
+        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/${listTotalCount}`);
     } catch (error) {
         console.error(`[Error Code] ${error.code}`);
         console.error(`[Error Message] ${error.message}`);
@@ -20,13 +24,12 @@
     }
 
     // 데이터의 총 길이 (행사목록 총 길이)
-    const listTotalCount = json.data.ListPublicReservationCulture.list_total_count;
-    console.log(listTotalCount);
+
 
     const { row } = json.data.ListPublicReservationCulture;
     // console.log(row);
 
-    let arr1 = [], arr2 = [], arr3 = [], arr4 = [] ;
+    let arr1 = [], arr2 = [], arr3 = [], arr4 = [];
     let MINCLASSNM = [], SVCSTATNM = [], PAYATNM = [], AREANM = [];
 
     row.forEach((v) => {
@@ -51,12 +54,12 @@
     function name(params, x) {
         // 반복문으로 dropdown태그 추가
         params.forEach((v, i) => {
-        const option = document.createElement('option');
-        option.setAttribute('value', params[i]);
+            const option = document.createElement('option');
+            option.setAttribute('value', params[i]);
 
-        option.innerHTML = params[i];
+            option.innerHTML = params[i];
 
-        x.appendChild(option);
+            x.appendChild(option);
         });
     }
     name(MINCLASSNM, id1);
