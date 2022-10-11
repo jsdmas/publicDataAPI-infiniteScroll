@@ -45,3 +45,45 @@ ul{
     background-color: brown;
     cursor: pointer;
 }
+
+#description{
+    position: fixed;
+    z-index: 99;
+    width: 70%;
+    height: 80%;
+    background-color: white;
+}
+
+.hidden{
+    display: none;
+}
+.description__wrap{
+    display: flex;
+
+}
+.description__poster{
+    background-color: orange;
+    background: no-repeat center/cover;
+    width: 100px;
+    height: 100px;
+}
+.description__info>h3{
+    background-color: bisque;
+    width: 200px;
+    height: 50px;
+}
+.description__info__data{
+    display: flex;
+    flex-direction: column;
+}
+
+.description__info__data span{
+    background-color: skyblue;
+    margin-top: 5px;
+    width: 200px;
+    height: 50px;
+}
+
+#description{
+    overflow: auto;
+}

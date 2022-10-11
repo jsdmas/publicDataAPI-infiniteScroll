@@ -1,6 +1,14 @@
 // index의 container div
 const container = document.querySelector(`#container`);
 
+// description 안의 내용담을 것들
+const poster = document.querySelector(`.description__poster`);
+const infoTitle = document.querySelector(`.description__info>h3`);
+const span1 = document.querySelector(`.description__info__data :nth-child(1)`);
+const span2 = document.querySelector(`.description__info__data :nth-child(2)`);
+const span3 = document.querySelector(`.description__info__data :nth-child(3)`);
+const moreInfo = document.querySelector(`.description__moreinfo>p`);
+
 async function search() {
     let json = null;
     try {
@@ -51,7 +59,32 @@ async function search() {
         // container에 div추가
         container.appendChild(div);
 
-        // div 클릭 이벤트_메뉴 추가 (toggle를 통한 css 움직임 제어)
+        // div클릭시 html에 있던 숨겨진 상자 안에 나오게하기
+        div.addEventListener("click", e => {
+            description.classList.toggle("hidden");
+
+            // 이미지 변화
+            poster.setAttribute("src", v.IMGURL);
+            // title
+            infoTitle.innerHTML = v.SVCNM;
+
+            // SVCOPNBGNDT : 서비스 시작일시
+            // SVCOPNENDDT : 서비스 종료일시
+            // span1 : 날짜 -> string 변환후 substring으로 날짜만 표시.
+            span1.innerHTML = `${String(v.SVCOPNBGNDT).substring(0, 10)} ~ ${String(v.SVCOPNENDDT).substring(0, 10)}`;
+
+            // indexOf :3번 앞으로 날려버리기 
+
+            // span2 : 결재방법
+            span2.innerHTML = v.PAYATNM;
+
+            // span3 : 서비스 상태
+            span3.innerHTML = v.SVCSTATNM;
+
+            // moreInfo : 상세내용
+            moreInfo.innerHTML = v.DTLCONT;
+        });
     });
+
 
 }

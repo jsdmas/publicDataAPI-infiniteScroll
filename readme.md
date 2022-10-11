@@ -3,7 +3,7 @@
 - [카카오지도](https://apis.map.kakao.com/)
 
 ## 주요기능
-1. 목록표시 (main)
+1. 목록표시 (main) -> 구현완료
 메인화면에 바로 보여지게끔 data_info를 div안에 작성 후 보여지게 하는방식  
 한번에 10개의 정보를 보여주며 스크롤을 내릴떄마다 정보를 추가해서 가져온다.  
 `div안의 data정보`
@@ -35,7 +35,7 @@ RCPTENDDT : "접수종료일시", //number
 SVCOPNBGNDT: "서비스개시시작일시", // number
 SVCOPNENDDT: "서비스개시종료일시", // number
 
-PAYAYNM : "결제방법", // string
+PAYATNM : "결제방법", // string
 
 DTLCONT : "상세내용" // HTML TAG를 포함한 stting
 ```
