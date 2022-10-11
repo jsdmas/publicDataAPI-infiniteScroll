@@ -74,8 +74,6 @@ async function search() {
             // span1 : 날짜 -> string 변환후 substring으로 날짜만 표시.
             span1.innerHTML = `${String(v.SVCOPNBGNDT).substring(0, 10)} ~ ${String(v.SVCOPNENDDT).substring(0, 10)}`;
 
-            // indexOf :3번 앞으로 날려버리기 
-
             // span2 : 결재방법
             span2.innerHTML = v.PAYATNM;
 
@@ -83,7 +81,11 @@ async function search() {
             span3.innerHTML = v.SVCSTATNM;
 
             // moreInfo : 상세내용
-            moreInfo.innerHTML = v.DTLCONT;
+            const DTLCONTNum = v.DTLCONT.indexOf("3.");
+            const deleteDT = v.DTLCONT.slice(0, DTLCONTNum);
+            moreInfo.innerHTML = v.DTLCONT.replace(deleteDT, "").replace("3.", ">");
+
+
         });
     });
 
