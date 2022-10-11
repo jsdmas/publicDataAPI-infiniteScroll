@@ -5,7 +5,6 @@
 (async () => {
     let json = null;
     try {
-
         const response = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/${endPage}`);
         json = response.data;
         const listTotalCount = json.ListPublicReservationCulture.list_total_count;
@@ -23,11 +22,7 @@
         return;
     }
 
-    // 데이터의 총 길이 (행사목록 총 길이)
-
-
     const { row } = json.data.ListPublicReservationCulture;
-    // console.log(row);
 
     let arr1 = [], arr2 = [], arr3 = [], arr4 = [];
     let MINCLASSNM = [], SVCSTATNM = [], PAYATNM = [], AREANM = [];
@@ -50,7 +45,7 @@
     const id2 = document.querySelector('#SVCSTATNM');
     const id3 = document.querySelector('#PAYATNM');
     const id4 = document.querySelector('#AREANM');
-
+    ㅌ
     function name(params, x) {
         // 반복문으로 dropdown태그 추가
         params.forEach((v, i) => {
