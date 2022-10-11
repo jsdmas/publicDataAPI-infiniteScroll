@@ -5,10 +5,12 @@
 (async () => {
     let json = null;
     try {
-        const response = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/${endPage}`);
+
+        const response = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firstPage}/${endPage}`);
+
         json = response.data;
         const listTotalCount = json.ListPublicReservationCulture.list_total_count;
-        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firestPage}/${listTotalCount}`);
+        json = await axios.get(`http://openapi.seoul.go.kr:8088/${KEY}/${dataType}/ListPublicReservationCulture/${firstPage}/${listTotalCount}`);
     } catch (error) {
         console.error(`[Error Code] ${error.code}`);
         console.error(`[Error Message] ${error.message}`);
