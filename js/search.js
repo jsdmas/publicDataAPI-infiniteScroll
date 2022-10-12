@@ -22,4 +22,5 @@ async function search() {
 
     // festival 로 받은 행사 정보를 통해 HTML데이터 생성.
     festival.forEach(v => elementcreate(v));
+    
 }

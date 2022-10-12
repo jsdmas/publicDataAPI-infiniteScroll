@@ -135,7 +135,7 @@ nav {
                 flex: 1;
                 width: 50%;
 
-                h2 {
+                h3 {
                     font-size: 18px;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -154,6 +154,13 @@ nav {
                     -webkit-line-clamp: 3;  /*라인수*/
                     -webkit-box-orient: vertical;
                     word-wrap: break-word;
+                    margin-top: 5px;
+
+                    &:first-of-type {
+                        font-size: 15px;
+                        font-weight: bold;
+                        margin: 0;
+                    }
                 }
             }
         }
