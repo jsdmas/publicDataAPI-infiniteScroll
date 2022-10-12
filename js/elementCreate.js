@@ -7,6 +7,7 @@ const infoTitle = document.querySelector(`.description__info>h3`);
 const span1 = document.querySelector(`.description__info__data :nth-child(1)`);
 const span2 = document.querySelector(`.description__info__data :nth-child(2)`);
 const span3 = document.querySelector(`.description__info__data :nth-child(3)`);
+const span4 = document.querySelector(`.description__info__data :nth-child(4)`);
 const moreInfo = document.querySelector(`.description__moreinfo>p`);
 
 // 초기 불러올 데이터의 양 
@@ -54,6 +55,11 @@ function elementcreate(v) {
     service.innerHTML = v.SVCSTATNM;
     titleDiv.appendChild(service);
 
+    // 지역명
+    const area = document.createElement('span');
+    area.innerHTML = v.AREANM;
+    titleDiv.appendChild(area);
+
     // container에 div추가
     container.appendChild(div);
 
@@ -77,6 +83,10 @@ function elementcreate(v) {
         // span3 : 서비스 상태
         span3.innerHTML = v.SVCSTATNM;
 
+        // span4 : 지역명
+        span4.innerHTML = v.AREANM;
+
+
         // moreInfo : 상세내용
         const DTLCONTNum = v.DTLCONT.indexOf("3.");
         const deleteDT = v.DTLCONT.slice(0, DTLCONTNum);
@@ -84,6 +94,11 @@ function elementcreate(v) {
         // const newtext = text.replace(/<[^>]*>?/g, '');
         // moreInfo.innerHTML = newtext;
         moreInfo.innerHTML = text;
+
+        const longtitue = Number(v.X);
+        const lattitue = Number(v.Y);
+
+        panTo(lattitue, longtitue);
 
     });
 };
