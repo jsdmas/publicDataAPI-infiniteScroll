@@ -68,6 +68,24 @@ nav {
     box-sizing: border-box;
     overflow: auto;
 
+    #delete {
+        @include always(40);
+        top: 0;
+        right: 40%;
+        transform: translate(100%, 0%);
+        padding: 10px;
+        font-size: 18px;
+        background-color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 50%;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+            opacity: 100%;
+        }
+    }
+
     .description__poster {
         display: block;
         width: 100%;

@@ -64,7 +64,7 @@
         const svcArr = row.filter(v => v.SVCSTATNM == valueSvc);
         const areArr = row.filter(v => v.AREANM == valueAre);
         // 두가지선택
-        const svcAreArr = row.filter(v => v.SVCSTATNM == valueSvc || v.AREANM == valueAre);
+        const svcAreArr = row.filter(v => v.SVCSTATNM == valueSvc && v.AREANM == valueAre);
         //index 넘버가 0보다 크면 위의 Arr값 출력하게하기. --> chooseMin > 0 : 선택됨 (기본값 : 0)
 
         if (chooseSvc > 0) {
@@ -74,6 +74,7 @@
             });
             // 필터적용된 데이터 생성
             svcArr.forEach(v => elementcreate(v));
+            
         } else if (chooseAre > 0) {
             document.querySelectorAll(`.box`).forEach(v => {
                 v.remove();
