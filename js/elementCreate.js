@@ -11,14 +11,13 @@ const moreInfo = document.querySelector(`.description__moreinfo>p`);
 
 // 초기 불러올 데이터의 양 
 let firstPage = 1;
-let endPage = 10;
+let endPage = 5;
 
 // dropdown에 포함할 장소 선언
-const minclassnm = document.querySelector('#MINCLASSNM');
 const svcstatnm = document.querySelector('#SVCSTATNM');
-const payatnm = document.querySelector('#PAYATNM');
 const areanm = document.querySelector('#AREANM');
-
+// dropdown 버튼
+const btn = document.querySelector(`#submit`);
 
 function elementcreate(v) {
     // 목록 div 생성
@@ -75,5 +74,6 @@ function elementcreate(v) {
         // const newtext = text.replace(/<[^>]*>?/g, '');
         // moreInfo.innerHTML = newtext;
         moreInfo.innerHTML = text;
+
     });
 };

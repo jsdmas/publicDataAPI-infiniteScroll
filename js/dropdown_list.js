@@ -1,7 +1,6 @@
 /**
  * data에서 필터로 사용할 dropdown select 종류를 가져옴
  */
-
 (async () => {
     let json = null;
     try {
@@ -22,24 +21,19 @@
         return;
     }
 
-    const { row } = json.data.ListPublicReservationCulture;
+    const { row } = json.data.ListPublicReservationCulture
+
     // 필터 데이터 가져오기 
-    let arr1 = [], arr2 = [], arr3 = [], arr4 = [];
-    let MINCLASSNM = [], SVCSTATNM = [], PAYATNM = [], AREANM = [];
+    let arr1 = [], arr2 = [];
+    let SVCSTATNM = [], AREANM = [];
 
     // 이름과 같은 내용들 배열에 추가
     row.forEach((v) => {
-        arr1.push(v.MINCLASSNM);
-        MINCLASSNM = arr1.filter((v, i) => arr1.indexOf(v) === i);
+        arr1.push(v.SVCSTATNM);
+        SVCSTATNM = arr1.filter((v, i) => arr1.indexOf(v) === i);
 
-        arr2.push(v.SVCSTATNM);
-        SVCSTATNM = arr2.filter((v, i) => arr2.indexOf(v) === i);
-
-        arr3.push(v.PAYATNM);
-        PAYATNM = arr3.filter((v, i) => arr3.indexOf(v) === i);
-
-        arr4.push(v.AREANM);
-        AREANM = arr4.filter((v, i) => arr4.indexOf(v) === i);
+        arr2.push(v.AREANM);
+        AREANM = arr2.filter((v, i) => arr2.indexOf(v) === i);
     })
 
     function name(params, x) {
@@ -51,48 +45,48 @@
             x.appendChild(option);
         });
     }
-    name(MINCLASSNM, minclassnm);
     name(SVCSTATNM, svcstatnm);
-    name(PAYATNM, payatnm);
     name(AREANM, areanm);
-
 
     // submit 이벤트
     document.querySelector("#form").addEventListener("submit", e => {
         e.preventDefault();
-
         // dropdown value 받아오기
-        const chooseMin = minclassnm.selectedIndex;
         const chooseSvc = svcstatnm.selectedIndex;
-        const choosePay = payatnm.selectedIndex;
         const chooseAre = areanm.selectedIndex;
 
         // 선택된 value
-        const valueMin = minclassnm[chooseMin].value;
         const valueSvc = svcstatnm[chooseSvc].value;
-        const valuePay = payatnm[choosePay].value;
         const valueAre = areanm[chooseAre].value;
-
         // value와 같은 행사정보 배열 만들기.
         // --선택하세요-- 값은 true로 설정해서 항상 참으로 만든다.
-        // min선택
-        const minArr = row.filter(v => v.MINCLASSNM == valueMin);
-        console.log(minArr);
-        // const minSvcArr = row.filter(v => v.MINCLASSNM == valueMin && v.SVCSTATNM == valueSvc);
-        // const minSvcPayArr = row.filter(v => v.MINCLASSNM == valueMin && v.SVCSTATNM == valueSvc && v.PAYATNM == valuePay);
-        // const minSvcPayAreArr = row.filter(v => v.MINCLASSNM == valueMin && v.SVCSTATNM == valueSvc && v.PAYATNM == valuePay && v.AREANM == valueAre);
-        // // svc선택
-        // const svcArr = row.filter(v => v.SVCSTATNM == valueSin);
-        // const svcPayArr = row.filter(v => v.PAYATNM == valuePay && v.SVCSTATNM == valueSvc);
-        // const svcPayAreArr = row.filter(v => v.PAYATNM == valuePay && v.SVCSTATNM == valueSvc && v.AREANM == valueAre);
-        // // pay 선택
-        // const payArr = row.filter(v => v.PAYATNM == valuePay);
-        // const payAreArr = row.filter(v => v.PAYATNM == valuePay && v.AREANM == valueAre);
-        // const payMinArr = row.filter(v => v.PAYATNM == valuePay && v.MINCLASSNM == valueMin);
-        // // Are 선택
-        // const areArr =         
+        // 하나만 선택
+        const svcArr = row.filter(v => v.SVCSTATNM == valueSvc);
+        const areArr = row.filter(v => v.AREANM == valueAre);
+        // 두가지선택
+        const svcAreArr = row.filter(v => v.SVCSTATNM == valueSvc || v.AREANM == valueAre);
+        //index 넘버가 0보다 크면 위의 Arr값 출력하게하기. --> chooseMin > 0 : 선택됨 (기본값 : 0)
 
-
+        if (chooseSvc > 0) {
+            // 기존 출력 박스 삭제
+            document.querySelectorAll(`.box`).forEach(v => {
+                v.remove();
+            });
+            // 필터적용된 데이터 생성
+            svcArr.forEach(v => elementcreate(v));
+        } else if (chooseAre > 0) {
+            document.querySelectorAll(`.box`).forEach(v => {
+                v.remove();
+            });
+            areArr.forEach(v => elementcreate(v));
+        } else if (chooseAre > 0 && chooseSvc > 0) {
+            document.querySelectorAll(`.box`).forEach(v => {
+                v.remove();
+            });
+            svcAreArr.forEach(v => elementcreate(v));
+        } else if (chooseSvc == 0 || chooseAre == 0) {
+            // 둘다 선택안했는데 검색누르면 페이지 새로고침
+            location.reload();
+        }
     });
-
 })();
