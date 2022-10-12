@@ -22,19 +22,19 @@
             <div>
                 <label for="MINCLASSNM">소분류</label>
                 <select name="MINCLASSNM" id="MINCLASSNM">
-                    <option value="">--선택하세요--</option>
+                    <option value="true">--선택하세요--</option>
                 </select>
                 <label for="SVCSTATNM">서비스상태</label>
                 <select name="SVCSTATNM" id="SVCSTATNM">
-                    <option value="">--선택하세요--</option>
+                    <option value="true">--선택하세요--</option>
                 </select>
                 <label for="PAYATNM">결제방법</label>
                 <select name="PAYATNM" id="PAYATNM">
-                    <option value="">--선택하세요--</option>
+                    <option value="true">--선택하세요--</option>
                 </select>
                 <label for="AREANM">지역명</label>
                 <select name="AREANM" id="AREANM">
-                    <option value="">--선택하세요--</option>
+                    <option value="true">--선택하세요--</option>
                 </select>
                 <!-- <label for="subject">접수일</label>
                 <input type="date" placeholder="2022. 09. 19. 오후 08:00" required> -->
@@ -76,9 +76,15 @@
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 
     <!-- main화면 data 불러오기 -->
-    <script src="./js/dataHandler.js"></script>
+    <!-- data요소 만드는 함수 -->
+    <script src="./js/elementCreate.js"></script>
+    <!-- filter를 사용한 데이터배열 정리 -->
+    <script src="./js/dropdown_list.js"></script>
+    <!-- 기본 search함수 -->
+    <script src="./js/search.js"></script>
+    <!-- window event + 정의된 search 함수 사용 -->
     <script src="./js/first.js"></script>
-    <!-- <script src="./js/dropdown_list.js"></script> -->
+
 </body>
 
 </html>

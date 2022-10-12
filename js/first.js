@@ -3,10 +3,6 @@
  * data의 총 길이를 구해 scroll event 적용, search 함수로 목록 불러오기.
  */
 
-// 초기 불러올 데이터의 양 
-let firstPage = 1;
-let endPage = 10;
-
 //첫 페이지에 데이터 불러오기.
 search();
 
@@ -42,20 +38,34 @@ search();
         // 스크롤바의 Y좌표
         const scrollTop = window.scrollY;
         // 웹 브라우저의 창 높이
-        console.log(scrollTop);
         const windowHeight = window.screen.availHeight;
         // HTML 문서의 높이
-        console.log(windowHeight);
         const documentHeight = document.body.scrollHeight;
-        console.log(documentHeight);
         // 스크롤바의 반동 효과를 고려해서 scrollTop + windowHeight가 실제 화면 크기보다 커 질 수도 있다.
         if (scrollTop + windowHeight >= documentHeight) {
             // 10개의 행사정보 불러오기 (배열길이 설정)
             firstPage += 10;
             endPage += 10;
             // dataHandler의 search 함수실행
+            // dropdown_list.js의 값에따라 다른 데이터가 보여진다.
+            // index 넘버가 0보다 크면 위의 Arr값 출력하게하기. --> chooseMin > 0 : 선택됨 (기본값 : 0)
+            // if (chooseMin > 0) {
 
+            //     minArr.forEach(v => elementcreate(v));
+            // } else if (chooseMin > 0 && chooseSvc > 0) {
+
+            //     minSvcArr.forEach(v => elementcreate(v));
+            // } else if (chooseMin > 0 && chooseSvc > 0 && choosePay > 0) {
+
+            //     minSvcPayArr.forEach(v => elementcreate(v));
+            // } else if (chooseMin > 0 && chooseSvc > 0 && choosePay > 0 && chooseAre > 0) {
+
+            //     minSvcPayAreArr.forEach(v => elementcreate(v));
+            // } else {
+            //     // 기본값
+            //}
             search();
+
         }
     });
 })();
