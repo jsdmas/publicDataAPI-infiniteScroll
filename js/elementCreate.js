@@ -37,12 +37,22 @@ function elementcreate(v) {
     // 서비스명
     h3.innerHTML = v.SVCNM;
     const span = document.createElement("span");
-    // 대분류명
+    // 소분류명
     span.innerHTML = v.MINCLASSNM;
 
     titleDiv.appendChild(h3);
     titleDiv.appendChild(span);
     div.appendChild(titleDiv);
+
+    // 결제 방법
+    const Payment = document.createElement('span');
+    Payment.innerHTML = v.PAYATNM;
+    titleDiv.appendChild(Payment);
+
+    // 서비스 상태
+    const service = document.createElement('span');
+    service.innerHTML = v.SVCSTATNM;
+    titleDiv.appendChild(service);
 
     // container에 div추가
     container.appendChild(div);
