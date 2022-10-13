@@ -71,14 +71,15 @@ function elementcreate(v) {
     // div클릭시 html에 있던 숨겨진 상자 안에 나오게하기
     div.addEventListener("click", e => {
 
-        // let growless = container.classList.contains("container");
         let Existence = description.classList.contains("hidden");
-        // console.log(Existence);
+
+        // 상세페이지가 열려있다면 목록의 크기를 줄임
         if (Existence === true) {
             description.classList.remove("hidden");
             container.classList.add("move");
             container.classList.remove("container");
         };
+
         // 이미지 변화
         poster.setAttribute("src", v.IMGURL);
         // title
@@ -126,6 +127,7 @@ function elementcreate(v) {
             v.setMap(null);
         });
 
+        // 로딩문제 해결
         map.relayout();
 
         // 마커를 생성합니다
@@ -140,6 +142,7 @@ function elementcreate(v) {
         marker.setMap(map);
     });
 
+    // 닫기 버튼 클릭 시 상세페이지 닫음
     document.querySelector('#delete').addEventListener('click', (e) => {
         description.classList.add('hidden');
         container.classList.remove("move");
