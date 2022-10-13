@@ -52,7 +52,11 @@
             </div>
 
             <div class="map_box">
-                <p>> 행사 위치</p>
+                <p> > 행사 위치</p>
+                <div class="hAddr">
+                    <span class="title">지도중심기준 법정동 주소정보</span>
+                    <span id="centerAddr"></span>
+                </div>
                 <div id="map"></div>
             </div>
 
@@ -79,10 +83,11 @@
     <script src="./js/keyDatatype.js"></script>
     <!-- axios -->
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    
+    <!-- 카카오 지도 API 연결 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0e36c8176a48ac24196aea5c6e90b0d&libraries=services"></script>
 
-    <!-- 카카오 지도 생성 -->
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0e36c8176a48ac24196aea5c6e90b0d"></script>
+    <!-- 지도 함수 -->
     <script src="./js/map.js"></script>
 
     <!-- main화면 data 불러오기 -->

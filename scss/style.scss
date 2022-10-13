@@ -144,21 +144,39 @@ a {text-decoration: none; color: #000;}
         }
     }
 
-.map_box {
-    width: 100%;
-    border-bottom: 1px solid #d5d5d5;
-    padding: 20px 0 50px 0;
+    .map_box {
+        width: 100%;
+        border-bottom: 1px solid #d5d5d5;
+        padding: 20px 0 50px 0;
 
-    p {
-        margin: 0 0 20px 10px;
-    }
+        p {
+            margin: 0 0 10px 10px;
+        }
 
-    #map {
-        width: 80%;
-        height: 350px;
-        margin: auto;
+        #map {
+            width: 80%;
+            height: 350px;
+            margin: auto;
+        }
+
+        .hAddr {
+            border-radius: 2px;
+            background:#fff;
+            background:rgba(255,255,255,0.8);
+            z-index:1;
+            padding:5px;
+
+            .title {
+                font-weight:bold;
+                display:block;
+            }
+    
+            #centerAddr {display:block;
+                margin-top:2px;
+                font-weight: normal;
+            }
+        }
     }
-}
 
     .description__moreinfo {
         div {
@@ -171,6 +189,7 @@ a {text-decoration: none; color: #000;}
         }
     }
 }
+
 .remove {
     margin-left: 0;
     width: 0%;
