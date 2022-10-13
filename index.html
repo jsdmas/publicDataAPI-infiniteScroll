@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>데이터 불러오기</title>
-    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <script src="https://kit.fontawesome.com/705917d5dc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
 <body>
     <header class="header">
-        <a href="#" class="logo">
-            <h1>서울시 문화행사 정보조회</h1>
+        <img src="./img/서울특별시 마크.jpg" alt="">
+        <h1><a href="">서울시 문화행사 정보조회</a></h1>
+        <a href="https://yeyak.seoul.go.kr/web/main.do" class="an">
+            <p>서울시 공공서비스예약 바로가기</p>
         </a>
-        <div class="bookmark"><i class="fa-solid fa-star"></i></div>
     </header>
     <!-- <nav>
         <form id="form">
@@ -35,16 +36,16 @@
 
     <div id="description" class="hidden">
         <div class="description__wrap">
-            <div id="delete">닫기</div>
-            <img class="description__poster" src="" />
+            <div id="delete"><i class="fa-solid fa-xmark"></i></div>
             <div class="description__info">
-                <h3></h3>
+                <img class="description__poster" src="" />
                 <div class="description__info__data">
+                    <h3></h3>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
-                    <span><a href="" id="linkBtn">예약하러가기</a></span>
+                    <span class="res_btn"><a href="" id="linkBtn">예약하러가기</a></span>
                 </div>
             </div>
 
@@ -53,20 +54,23 @@
             </div>
 
             <div class="description__moreinfo">
-                <p></p>
+                <p id="remove_img"></p>
             </div>
         </div>
     </div>
 
-    <div id="container">
-        <!-- <div class="box">
-            <img class="box__img"
-                src="https://mblogthumb-phinf.pstatic.net/MjAyMDAzMTNfMTUz/MDAxNTg0MDc0OTI5MTMz.uJm-kdKZTOlxJZis7Uf6APQ1gEv9a8YmgSPMXXjy63Ig.SiCOkm1obZ0VUhvTqVKvFsXlGJum8F5AizK6_iFVeEEg.JPEG.julyhoho/SE-5d32444c-a0ec-4dd8-81ea-9d983f2b3628.jpg?type=w800" />
-            <div class="box__title">
-                <h3>서비스명(SVCNM)</h3>
-                <span>대분류명(MAXCLASSNM)</span>
-            </div>
-        </div> -->
+    <div class="container_wrap">
+        <p>서울시 및 산하기관, 자치구의 문화행사 예약정보를 제공합니다.</p>
+        <div id="container" class="container">
+            <!-- <div class="box">
+                <img class="box__img"
+                    src="https://mblogthumb-phinf.pstatic.net/MjAyMDAzMTNfMTUz/MDAxNTg0MDc0OTI5MTMz.uJm-kdKZTOlxJZis7Uf6APQ1gEv9a8YmgSPMXXjy63Ig.SiCOkm1obZ0VUhvTqVKvFsXlGJum8F5AizK6_iFVeEEg.JPEG.julyhoho/SE-5d32444c-a0ec-4dd8-81ea-9d983f2b3628.jpg?type=w800" />
+                <div class="box__title">
+                    <h3>서비스명(SVCNM)</h3>
+                    <span>대분류명(MAXCLASSNM)</span>
+                </div>
+            </div> -->
+        </div>
     </div>
     <!-- key값, 데이터타입 -->
     <script src="./js/keyDatatype.js"></script>
