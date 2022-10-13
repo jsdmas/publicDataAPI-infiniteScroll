@@ -8,7 +8,10 @@ const span1 = document.querySelector(`.description__info__data :nth-child(1)`);
 const span2 = document.querySelector(`.description__info__data :nth-child(2)`);
 const span3 = document.querySelector(`.description__info__data :nth-child(3)`);
 const span4 = document.querySelector(`.description__info__data :nth-child(4)`);
+// const span5 = document.querySelector(`.description__info__data :nth-child(5)`);
+const linkBtn = document.querySelector(`#linkBtn`);
 const moreInfo = document.querySelector(`.description__moreinfo>p`);
+
 
 const description = document.querySelector('#description');
 
@@ -71,7 +74,7 @@ function elementcreate(v) {
         let Existence = description.classList.contains("hidden");
         // console.log(Existence);
         if (Existence === true) {
-            description.classList.toggle("hidden");
+            description.classList.remove("hidden");
         };
         // 이미지 변화
         poster.setAttribute("src", v.IMGURL);
@@ -92,6 +95,8 @@ function elementcreate(v) {
         // span4 : 지역명
         span4.innerHTML = v.AREANM;
 
+        // span5 : 예약링크
+        linkBtn.setAttribute("href", v.SVCURL);
 
         // moreInfo : 상세내용
         const DTLCONTNum = v.DTLCONT.indexOf("3.");
@@ -104,11 +109,11 @@ function elementcreate(v) {
         // 지도 이동
         const longtitue = Number(v.X);
         const lattitue = Number(v.Y);
-        
+
         panTo(lattitue, longtitue);
 
         // 마커가 표시될 위치입니다 
-        var markerPosition  = new kakao.maps.LatLng(lattitue, longtitue);
+        var markerPosition = new kakao.maps.LatLng(lattitue, longtitue);
 
         //이전 마커를 지웁니다
         markers.forEach((v, i) => {
@@ -127,7 +132,7 @@ function elementcreate(v) {
         marker.setMap(map);
     });
 
-    document.querySelector('#delete').addEventListener('click' , (e) => {
-        description.classList.toggle('hidden');
+    document.querySelector('#delete').addEventListener('click', (e) => {
+        description.classList.add('hidden');
     })
 };
