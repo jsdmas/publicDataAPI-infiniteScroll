@@ -230,12 +230,12 @@ a {text-decoration: none; color: #000;}
         align-items: center;
         padding: 20px;
         border-bottom: 1px dotted #eee;
+        box-sizing: border-box;
 
         &:hover {
             border: 5px solid #03a2d9;
             cursor: pointer;
             border-radius: 20px;
-            box-sizing: border-box;
         }
     }
                 
