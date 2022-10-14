@@ -126,7 +126,6 @@ function elementcreate(v) {
             v.setMap(null);
         });
 
-        // 로딩문제 해결
         map.relayout();
 
         // 마커를 생성합니다
