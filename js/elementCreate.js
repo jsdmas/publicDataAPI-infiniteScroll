@@ -112,17 +112,14 @@ function elementcreate(v) {
         // moreInfo.innerHTML = newtext;
         moreInfo.innerHTML = img_remove;
 
-        // 지도 로딩문제 해결
-        map.relayout();
-
         // 지도 이동
-        panTo(v.Y, v.X);
+        const longtitue = Number(v.X);
+        const lattitue = Number(v.Y);
 
-        // 지도 좌표의 주소 표시
-        address();
+        panTo(lattitue, longtitue);
 
         // 마커가 표시될 위치입니다 
-        var markerPosition = new kakao.maps.LatLng(v.Y, v.X);
+        var markerPosition = new kakao.maps.LatLng(lattitue, longtitue);
 
         //이전 마커를 지웁니다
         markers.forEach((v, i) => {
