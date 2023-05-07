@@ -1,59 +1,28 @@
-## 사용 API
+# 📉 서울시 행사정보 조회
+
+공공 데이터 포탈의 API, kakao map API 외부 API를 활용해 웹 페이지를 구현한 프로젝트입니다.
+
+## 📚 실행방법
+
+index.html 실행 (키 데이터 만료로 카카오map은 실행되지 않습니다!)
+
+## 📑 사용 API
 - [문화행사 정보](http://data.seoul.go.kr/dataList/OA-2269/S/1/datasetView.do)
 - [카카오지도](https://apis.map.kakao.com/) 
 
-## 주요기능
-1. 목록표시 (main) -> 구현완료
-메인화면에 바로 보여지게끔 data_info를 div안에 작성 후 보여지게 하는방식  
-한번에 10개의 정보를 보여주며 스크롤을 내릴떄마다 정보를 추가해서 가져온다.  
-`div안의 data정보`
-```js
-SVCNM : "서비스명",
-MAXCLASSNM : "문화체험", // 대분류명
-IMGURL : "이미지정보" // url
+## 프로젝트 구조
 ```
-`스크롤 이벤트시 값이 변동할 변수`
-```js
-let firestPage = 1; // 첫번째 정보
-let endPage = 10; // 마지막 정보
-// 스크롤 내릴때 firestPage,endPage의 값은 10씩 증가 -> 11,20 -> 21,30 ...
-// 17.이벤트 처리 06번 예제 활용
-```
-스크롤 이벤트에서 마지막 페이지에 해당할 경우 async 함수를 사용해 데이터를 추가해준다.
-
-#### 상세정보 표시
-- 사진, 제목, 중요정보, 상세정보 (figma문서참조)  -> 구현완료
-`div 클릭시 옆에서 메뉴 나오게 하기`
-```js
-IMGURL : "이미지정보",
-SVCNM : "서비스명",
-SVCSTATNM: "서비스상태", // 접수 여부
-
-RCPTBGNDT : "접수시작일시", //number
-RCPTENDDT : "접수종료일시", //number
-
-SVCOPNBGNDT: "서비스개시시작일시", // number
-SVCOPNENDDT: "서비스개시종료일시", // number
-
-PAYATNM : "결제방법", // string
-
-DTLCONT : "상세내용" // HTML TAG를 포함한 stting
+📦src
+ ┣ 📂css
+ ┣ 📂scss
+ ┣ 📂img
+ ┣ 📂js
+ ┗ index.html 
 ```
 
-#### 분류기능으로 조회 (nav) 
-필터적용 -> 완료
-
-#### 지도표시  
-`div menu 지도` 
-```js
-Y:"장소 Y좌표(lattitue = 위도)",
-X:"장소 X좌표(longtitue = 경도)"
-// kakao map 사용해서 데이터 가공하여 위치 표시.
-```
-
-## 시간 남으면 추가할 기능
-- 상하단 이동버튼
-
-### 내일 할 것
-CSS 완성 (desciption 창이 생기면 container 크기가 50%정도에 왼쪽으로 붙게 수정하기)
-애니메이션 추가
+## 📊 성장 
+외부 API 를 활용하여 데이터를 받아오고 json 데이터를 사용자에게 보여줘서 기본적인 데이터 핸들링과 front-end 지식을 익혔습니다.  
+  
+라이브러리나 프레임워크를 사용하지 않고 HTML, JS, CSS로 웹 구현을 진행하여 웹 개발 기초를 익혀 기본적인 문법과 구조에 대한 이해가 높아졌고 라이브러리나 프레임워크를 사용할 때 기반이 되는 지식들을 마련할 수 있었습니다.  
+  
+기본적인 스크롤 이벤트를 적용하여 스크롤 이벤트 기초를 익히게 되었습니다.
